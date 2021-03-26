@@ -25,12 +25,17 @@ client.on("message", (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
+  const defaultCommand = com.get(command);
+
   switch (command) {
     case "ping":
-      com.get("ping").execute(message, args);
+      defaultCommand.execute(message, args, discord);
       break;
     case "youtube":
-      com.get("youtube").execute(message, args);
+      defaultCommand.execute(message, args, discord);
+      break;
+    case "command":
+      defaultCommand.execute(message, args, discord);
       break;
     default:
       message.channel.send(
