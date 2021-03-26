@@ -37,6 +37,9 @@ client.on("message", (message) => {
     case "command":
       defaultCommand.execute(message, args, discord);
       break;
+    case "clear":
+      defaultCommand.execute(message, args, discord);
+      break;
     default:
       message.channel.send(
         `Incorrect command!\nCommand format is : '$command'`
