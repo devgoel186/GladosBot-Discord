@@ -18,6 +18,18 @@ client.once("ready", () => {
   console.log("GG! GladosBot is Online!");
 });
 
+client.on("guildMemberAdd", (guildMember) => {
+  let welcomeRole = guildMember.guild.channels.cache.find(
+    (r) => r.name === "member"
+  );
+  guildMember.roles.add(welcomeRole);
+  guildMember.guild.channels.cache
+    .get(process.env.WELCOME_CHANNEL_ID)
+    .send(
+      `Welcome to the community ${guildMember}! Get into gossips and fun at <#${process.env.GENERAL_CHANNEL_ID}> channel`
+    );
+});
+
 let com = client.commands;
 client.on("message", (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
