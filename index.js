@@ -46,6 +46,12 @@ client.on("message", (message) => {
     case "ban":
       defaultCommand.execute(message, args, discord);
       break;
+    case "mute":
+      defaultCommand.execute(message, args, discord);
+      break;
+    case "unmute":
+      defaultCommand.execute(message, args, discord);
+      break;
     default:
       message.channel.send(
         `Incorrect command!\nCommand format is : '$command'`
