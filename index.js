@@ -40,6 +40,12 @@ client.on("message", (message) => {
     case "clear":
       defaultCommand.execute(message, args, discord);
       break;
+    case "kick":
+      defaultCommand.execute(message, args, discord);
+      break;
+    case "ban":
+      defaultCommand.execute(message, args, discord);
+      break;
     default:
       message.channel.send(
         `Incorrect command!\nCommand format is : '$command'`
